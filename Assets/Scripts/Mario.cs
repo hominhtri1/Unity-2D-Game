@@ -8,13 +8,23 @@ using TMPro;
 
 public class Mario : MonoBehaviour
 {
+	public GameObject pauseMenu;
+	
 	public TextMeshProUGUI healthText = null;
 
 	public GameObject projectile;
+
+	public AudioClip jumpAudio;
 	
 	private Rigidbody2D body;
 
 	private Animator animator;
+
+	private AudioSource audioSource;
+
+	private GameObject pauseMenuInstance;
+
+	private bool paused;
 
 	private int health;
 
@@ -26,6 +36,10 @@ public class Mario : MonoBehaviour
 
 		animator = GetComponent<Animator>();
 
+		audioSource = GetComponent<AudioSource>();
+
+		paused = false;
+
 		health = 3;
 
 		facingRight = true;
@@ -33,20 +47,35 @@ public class Mario : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKey("escape"))
-            Application.Quit();
+		if (Input.GetKeyDown("p"))
+		{
+			paused = true;
+
+			Time.timeScale = 0;
+
+			pauseMenuInstance = Instantiate(pauseMenu, new Vector3(0, 0, -1), Quaternion.identity);
+		}
+
+		if (paused)
+			return;
 
 		if (healthText != null)
 			healthText.text = health.ToString();
+		
+		if (health <= 0)
+			RestartLevel();
+		
+		if (transform.position.y < -10)
+			RestartLevel();
 
-		if (health == 0 || Input.GetKey("down"))
+		if (Input.GetKeyDown("s"))
 		{
 			Scene scene = SceneManager.GetActiveScene();
 
-			if (scene.buildIndex == 1)
-				SceneManager.LoadScene(2);
+			if (scene.name == "Level 1")
+				SceneManager.LoadScene("Level 2");
 			else
-				SceneManager.LoadScene(1);
+				SceneManager.LoadScene("Level 1");
 		}
 		
 		if ((body.velocity.x > 0 && !facingRight) || (body.velocity.x < 0 && facingRight))
@@ -68,6 +97,9 @@ public class Mario : MonoBehaviour
 
     void FixedUpdate()
     {
+		if (paused)
+			return;
+
 		bool isGrounded = IsGrounded();
 
         float forceX = 0;
@@ -83,11 +115,12 @@ public class Mario : MonoBehaviour
 		
 		float forceY = 0;
 
-		if (Input.GetKey("up"))
+		if (Input.GetKey("up") && isGrounded)
+		{
 			forceY = 500;
-		
-		if (!isGrounded)
-			forceY = 0;
+
+			audioSource.PlayOneShot(jumpAudio);
+		}
 		
 		body.AddForce(new Vector2(forceX, forceY));
     }
@@ -102,6 +135,13 @@ public class Mario : MonoBehaviour
 
 			Destroy(collidingObject);
 		}
+	}
+
+	void RestartLevel()
+	{
+		Scene scene = SceneManager.GetActiveScene();
+
+		SceneManager.LoadScene(scene.name);
 	}
 
 	void Flip()
@@ -143,5 +183,14 @@ public class Mario : MonoBehaviour
 			return false;
 		else
 			return true;
+	}
+
+	public void Unpause()
+	{
+		paused = false;
+			
+		Time.timeScale = 1;
+
+		Destroy(pauseMenuInstance);
 	}
 }
