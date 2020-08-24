@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -515394145874995762}
   - component: {fileID: 4076554647488468094}
   m_Layer: 0
-  m_Name: Fire
+  m_Name: Bowser Homing Projectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

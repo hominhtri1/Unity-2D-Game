@@ -12,7 +12,7 @@ public class Mario : MonoBehaviour
 	
 	public TextMeshProUGUI healthText = null;
 
-	public GameObject projectile;
+	public GameObject playerProjectile;
 
 	public AudioClip jumpAudio;
 	
@@ -166,7 +166,7 @@ public class Mario : MonoBehaviour
 	void FireProjectile(Vector3 direction)
     {
         GameObject clone =
-			Instantiate(projectile, transform.position + direction, Quaternion.identity);
+			Instantiate(playerProjectile, transform.position + direction * 0.8f, Quaternion.identity);
 
         Rigidbody2D cloneBody = clone.GetComponent<Rigidbody2D>();
 

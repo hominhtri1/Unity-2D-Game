@@ -8,7 +8,8 @@ public class Bowser : MonoBehaviour
 {
     public GameObject player;
     
-    public GameObject projectile;
+    public GameObject normalProjectile;
+    public GameObject homingProjectile;
 
     private int health;
 
@@ -16,7 +17,6 @@ public class Bowser : MonoBehaviour
     {
         health = 3;
 
-        // InvokeRepeating("Attack", 1, 30);
         StartCoroutine("Attack");
     }
 
@@ -49,6 +49,13 @@ public class Bowser : MonoBehaviour
     {
         while (true)
         {
+            for (int i = 0; i < 5; ++i)
+            {
+                FireProjectileAtPlayer();
+
+                yield return new WaitForSeconds(1);
+            }
+
             for (int i = 0; i < 3; ++i)
             {
                 FireHomingProjectile();
@@ -72,7 +79,7 @@ public class Bowser : MonoBehaviour
     void FireProjectile(Vector3 direction)
     {
         GameObject clone =
-			Instantiate(projectile, transform.position + direction * 1.8f, Quaternion.identity);
+			Instantiate(normalProjectile, transform.position + direction * 1.8f, Quaternion.identity);
 
         Rigidbody2D cloneBody = clone.GetComponent<Rigidbody2D>();
 
@@ -82,11 +89,11 @@ public class Bowser : MonoBehaviour
     void FireHomingProjectile()
     {
         GameObject clone =
-			Instantiate(projectile, transform.position + Vector3.up * 1.8f, Quaternion.identity);
+			Instantiate(homingProjectile, transform.position + Vector3.up * 1.8f, Quaternion.identity);
 
-        HomingProjectile homingProjectile = clone.GetComponent<HomingProjectile>();
+        HomingProjectile homingProjectileComp = clone.GetComponent<HomingProjectile>();
 
-        homingProjectile.SetSpeed(1.5f);
-        homingProjectile.SetSelfDestruct(8);
+        homingProjectileComp.SetSpeed(1.5f);
+        homingProjectileComp.SetSelfDestruct(8);
     }
 }

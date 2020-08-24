@@ -20,6 +20,12 @@ TextureImporter:
   - first:
       213: -5383407867553921227
     second: Fire_0
+  - first:
+      213: 7301754939111470067
+    second: Fire_1
+  - first:
+      213: 3366035027270568996
+    second: Fire_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -238,6 +244,48 @@ TextureImporter:
       bones: []
       spriteID: 537c765211b4a45b0800000000000000
       internalID: -5383407867553921227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_1
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 1306
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f371b64e6b055560800000000000000
+      internalID: 7301754939111470067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_2
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 1275
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c0cf5f50f86be20800000000000000
+      internalID: 3366035027270568996
       vertices: []
       indices: 
       edges: []
