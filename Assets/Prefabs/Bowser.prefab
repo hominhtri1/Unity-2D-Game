@@ -149,3 +149,7 @@ MonoBehaviour:
     type: 3}
   homingProjectile: {fileID: 3097578450914924411, guid: e22b9cdfc9390ec4e945005326bc396b,
     type: 3}
+  victoryEasyModeMenu: {fileID: 2517875209596265222, guid: 1315b975a54388d4594a8fd14b9810a4,
+    type: 3}
+  victoryHardModeMenu: {fileID: 307794564834446696, guid: 8aef7a70ff9d20e469e42677b8cce58a,
+    type: 3}

@@ -11,25 +11,46 @@ public class Bowser : MonoBehaviour
     public GameObject normalProjectile;
     public GameObject homingProjectile;
 
+    public GameObject victoryEasyModeMenu;
+    public GameObject victoryHardModeMenu;
+
     private int health;
+
+    private bool dead;
 
     void Start()
     {
         health = 3;
+
+        dead = false;
 
         StartCoroutine("Attack");
     }
 
     void Update()
     {
-        if (health == 0)
+        if (health == 0 && !dead)
         {
+            dead = true;
+
             Scene scene = SceneManager.GetActiveScene();
 
-			if (scene.name == "Level 1")
-				SceneManager.LoadScene("Level 2");
+			if (scene.name == "Easy Mode")
+			{
+                Mario playerComp = player.GetComponent<Mario>();
+
+                playerComp.Pause();
+
+                Instantiate(victoryEasyModeMenu, new Vector3(0, 0, -1), Quaternion.identity);
+            }
 			else
-				SceneManager.LoadScene("Level 1");
+			{
+                Mario playerComp = player.GetComponent<Mario>();
+
+                playerComp.Pause();
+
+                Instantiate(victoryHardModeMenu, new Vector3(0, 0, -1), Quaternion.identity);
+            }
         }
     }
 

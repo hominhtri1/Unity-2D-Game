@@ -41,12 +41,11 @@ public class PauseMenu : MonoBehaviour
             {
                 case 0:
                     Mario player = GameObject.Find("Mario").GetComponent<Mario>();
-
                     player.Unpause();
-                    
                     break;
                 case 1:
-                    Application.Quit();
+                    Time.timeScale = 1;
+                    SceneManager.LoadScene("Main Menu");
                     break;
             }
         }

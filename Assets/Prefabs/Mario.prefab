@@ -258,7 +258,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 8026894142426526107, guid: 68e914868b4b12d4a9f2fe5dddfa315b,
     type: 3}
+  failureMenu: {fileID: 3954037668833299299, guid: 010151e3d1e508f44bed230ca23439d1,
+    type: 3}
   healthText: {fileID: 0}
   playerProjectile: {fileID: 3518594458033544713, guid: 4a88070339b46764dbe5f5c5c030e532,
     type: 3}
   jumpAudio: {fileID: 8300000, guid: c4c7a6229d617ac43b4202a3e6a098dc, type: 3}
+  hitAudio: {fileID: 8300000, guid: adbce6ea746845f468e85edcc495a573, type: 3}

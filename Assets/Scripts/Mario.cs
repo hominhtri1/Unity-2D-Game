@@ -9,12 +9,15 @@ using TMPro;
 public class Mario : MonoBehaviour
 {
 	public GameObject pauseMenu;
+	public GameObject failureMenu;
 	
 	public TextMeshProUGUI healthText = null;
+	public TextMeshProUGUI shootText = null;
 
 	public GameObject playerProjectile;
 
 	public AudioClip jumpAudio;
+	public AudioClip hitAudio;
 	
 	private Rigidbody2D body;
 
@@ -29,6 +32,8 @@ public class Mario : MonoBehaviour
 	private int health;
 
 	private bool facingRight;
+
+	private bool canShoot;
 	
     void Start()
     {
@@ -43,6 +48,8 @@ public class Mario : MonoBehaviour
 		health = 3;
 
 		facingRight = true;
+
+		canShoot = true;
     }
 
 	void Update()
@@ -62,20 +69,32 @@ public class Mario : MonoBehaviour
 		if (healthText != null)
 			healthText.text = health.ToString();
 		
+		if (shootText != null)
+		{
+			if (canShoot)
+				shootText.text = "Y";
+			else
+				shootText.text = "N";
+		}
+		
 		if (health <= 0)
-			RestartLevel();
+			OpenFailureMenu();
 		
 		if (transform.position.y < -10)
-			RestartLevel();
+		{
+			audioSource.PlayOneShot(hitAudio);
+
+			OpenFailureMenu();
+		}
 
 		if (Input.GetKeyDown("s"))
 		{
 			Scene scene = SceneManager.GetActiveScene();
 
-			if (scene.name == "Level 1")
-				SceneManager.LoadScene("Level 2");
+			if (scene.name == "Easy Mode")
+				SceneManager.LoadScene("Hard Mode");
 			else
-				SceneManager.LoadScene("Level 1");
+				SceneManager.LoadScene("Easy Mode");
 		}
 		
 		if ((body.velocity.x > 0 && !facingRight) || (body.velocity.x < 0 && facingRight))
@@ -131,17 +150,23 @@ public class Mario : MonoBehaviour
 
 		if (collidingObject.tag == "Projectile")
 		{
+			animator.SetTrigger("Hit");
+
+			audioSource.PlayOneShot(hitAudio);
+			
 			health -= 1;
 
 			Destroy(collidingObject);
 		}
 	}
 
-	void RestartLevel()
+	void OpenFailureMenu()
 	{
-		Scene scene = SceneManager.GetActiveScene();
+		paused = true;
 
-		SceneManager.LoadScene(scene.name);
+		Time.timeScale = 0;
+
+		Instantiate(failureMenu, new Vector3(0, 0, -1), Quaternion.identity);
 	}
 
 	void Flip()
@@ -165,6 +190,15 @@ public class Mario : MonoBehaviour
 
 	void FireProjectile(Vector3 direction)
     {
+		if (!canShoot)
+			return;
+		
+		canShoot = false;
+
+		StartCoroutine("ShootCooldown");
+		
+		animator.SetTrigger("Shoot");
+
         GameObject clone =
 			Instantiate(playerProjectile, transform.position + direction * 0.8f, Quaternion.identity);
 
@@ -172,6 +206,15 @@ public class Mario : MonoBehaviour
 
         cloneBody.velocity = direction * 5;
     }
+
+	IEnumerator ShootCooldown()
+	{
+		yield return new WaitForSeconds(5);
+
+		canShoot = true;
+
+		yield return null;
+	}
 
 	bool IsGrounded()
 	{
@@ -185,6 +228,13 @@ public class Mario : MonoBehaviour
 			return true;
 	}
 
+	public void Pause()
+	{
+		paused = true;
+
+		Time.timeScale = 0;
+	}
+
 	public void Unpause()
 	{
 		paused = false;
@@ -192,5 +242,13 @@ public class Mario : MonoBehaviour
 		Time.timeScale = 1;
 
 		Destroy(pauseMenuInstance);
+	}
+
+	public void Retry()
+	{
+		Time.timeScale = 1;
+
+		Scene scene = SceneManager.GetActiveScene();
+		SceneManager.LoadScene(scene.name);
 	}
 }

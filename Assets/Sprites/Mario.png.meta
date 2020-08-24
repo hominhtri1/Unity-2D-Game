@@ -26,6 +26,12 @@ TextureImporter:
   - first:
       213: 3366035027270568996
     second: Fire_2
+  - first:
+      213: -4300721584263116383
+    second: Mario_5
+  - first:
+      213: -1281953291003957293
+    second: Mario_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -257,7 +263,7 @@ TextureImporter:
         width: 6
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,7 +284,7 @@ TextureImporter:
         width: 16
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,6 +292,48 @@ TextureImporter:
       bones: []
       spriteID: 42c0cf5f50f86be20800000000000000
       internalID: 3366035027270568996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mario_5
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 1258
+        width: 26
+        height: 33
+      alignment: 9
+      pivot: {x: 0.37799308, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a9442c5184c054c0800000000000000
+      internalID: -4300721584263116383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mario_6
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 970
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dfe01f1646953ee0800000000000000
+      internalID: -1281953291003957293
       vertices: []
       indices: 
       edges: []
