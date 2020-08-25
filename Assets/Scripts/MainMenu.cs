@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
         TextMeshProUGUI initialText =
             transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         
-        initialText.color = Color.yellow;
+        initialText.color = Color.blue;
 
         index = 0;
     }
@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
         TextMeshProUGUI currentText =
             transform.GetChild(index).gameObject.GetComponent<TextMeshProUGUI>();
         
-        currentText.color = Color.white;
+        currentText.color = Color.black;
 
         if (Input.GetKeyDown("down") && index < 2)
             index += 1;
@@ -35,9 +35,9 @@ public class MainMenu : MonoBehaviour
         TextMeshProUGUI newText =
             transform.GetChild(index).gameObject.GetComponent<TextMeshProUGUI>();
         
-        newText.color = Color.yellow;
+        newText.color = Color.blue;
 
-        if (Input.GetKey("return"))
+        if (Input.GetKeyDown("return"))
         {
             if (index <= 1)
                 SceneManager.LoadScene(index + 1);

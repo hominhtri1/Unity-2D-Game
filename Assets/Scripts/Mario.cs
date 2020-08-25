@@ -16,8 +16,10 @@ public class Mario : MonoBehaviour
 
 	public GameObject playerProjectile;
 
-	public AudioClip jumpAudio;
 	public AudioClip hitAudio;
+	public AudioClip shootAudio;
+	public AudioClip jumpAudio;
+
 	
 	private Rigidbody2D body;
 
@@ -54,6 +56,9 @@ public class Mario : MonoBehaviour
 
 	void Update()
 	{
+		if (paused)
+			return;
+
 		if (Input.GetKeyDown("p"))
 		{
 			paused = true;
@@ -72,9 +77,9 @@ public class Mario : MonoBehaviour
 		if (shootText != null)
 		{
 			if (canShoot)
-				shootText.text = "Y";
+				shootText.text = "Yes";
 			else
-				shootText.text = "N";
+				shootText.text = "No";
 		}
 		
 		if (health <= 0)
@@ -148,7 +153,7 @@ public class Mario : MonoBehaviour
 	{
 		GameObject collidingObject = collision.gameObject;
 
-		if (collidingObject.tag == "Projectile")
+		if (collidingObject.tag == "Bowser Projectile")
 		{
 			animator.SetTrigger("Hit");
 
@@ -198,6 +203,8 @@ public class Mario : MonoBehaviour
 		StartCoroutine("ShootCooldown");
 		
 		animator.SetTrigger("Shoot");
+
+		audioSource.PlayOneShot(shootAudio);
 
         GameObject clone =
 			Instantiate(playerProjectile, transform.position + direction * 0.8f, Quaternion.identity);

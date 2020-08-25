@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2119008798614506432
+--- !u!1 &96968173624273899
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2119008798614506445}
-  - component: {fileID: 2119008798614506444}
-  - component: {fileID: 2119008798614506447}
-  - component: {fileID: 2119008798614506446}
-  - component: {fileID: 2119008798614506442}
-  - component: {fileID: 3743461604456863697}
-  - component: {fileID: 2119008798614506433}
-  m_Layer: 8
-  m_Name: Mario
+  - component: {fileID: 96968173624273911}
+  - component: {fileID: 96968173624273908}
+  - component: {fileID: 96968173624273909}
+  - component: {fileID: 96968173624273898}
+  - component: {fileID: 649564304079643611}
+  - component: {fileID: 8841290378317471518}
+  - component: {fileID: 7613784154048832040}
+  m_Layer: 0
+  m_Name: Bowser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2119008798614506445
+--- !u!4 &96968173624273911
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119008798614506432}
+  m_GameObject: {fileID: 96968173624273899}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalPosition: {x: -5.82, y: -3.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2119008798614506444
+--- !u!212 &96968173624273908
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119008798614506432}
+  m_GameObject: {fileID: 96968173624273899}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,26 +75,26 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4120955195336003847, guid: f9065934eb5840f4381dddf0b37cc8b2,
+  m_Sprite: {fileID: -8200048836180656220, guid: 8f325fce94b7a424e9423ebc5ba70296,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.44, y: 2.04}
+  m_Size: {x: 0.42, y: 0.41}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &2119008798614506447
+--- !u!50 &96968173624273909
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119008798614506432}
+  m_GameObject: {fileID: 96968173624273899}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -107,14 +107,14 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!68 &2119008798614506446
-EdgeCollider2D:
+  m_Constraints: 7
+--- !u!61 &96968173624273898
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119008798614506432}
+  m_GameObject: {fileID: 96968173624273899}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -122,24 +122,29 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.68, y: 1.68}
+    newSize: {x: 0.42, y: 0.41}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.68, y: 1.64}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.36, y: -0.68}
-  - {x: 0.36, y: -0.68}
-  - {x: 0.36, y: 0.68}
-  - {x: -0.36, y: 0.68}
-  - {x: -0.36, y: -0.68}
---- !u!95 &2119008798614506442
+--- !u!95 &649564304079643611
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119008798614506432}
+  m_GameObject: {fileID: 96968173624273899}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 611eb5f65e9873445af1be75bcbfad50, type: 2}
+  m_Controller: {fileID: 9100000, guid: eb40f2223f7c64846a13c36e839f52f6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -148,13 +153,13 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!82 &3743461604456863697
+--- !u!82 &8841290378317471518
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119008798614506432}
+  m_GameObject: {fileID: 96968173624273899}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -244,24 +249,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2119008798614506433
+--- !u!114 &7613784154048832040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119008798614506432}
+  m_GameObject: {fileID: 96968173624273899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 275b8c29379bcbf4496f7eb58615e066, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b767bd52f606ce4f8cce50e3ccfcfaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 8026894142426526107, guid: 68e914868b4b12d4a9f2fe5dddfa315b,
+  player: {fileID: 0}
+  normalProjectile: {fileID: 4666413625680958360, guid: 374724bc29726de4893a13f6d3fb0170,
     type: 3}
-  failureMenu: {fileID: 3954037668833299299, guid: 010151e3d1e508f44bed230ca23439d1,
+  homingProjectile: {fileID: 3097578450914924411, guid: e22b9cdfc9390ec4e945005326bc396b,
     type: 3}
+  shootAudio: {fileID: 8300000, guid: ba423a9ca197aed4d9fd13a1f5f8204c, type: 3}
   healthText: {fileID: 0}
-  playerProjectile: {fileID: 3518594458033544713, guid: 4a88070339b46764dbe5f5c5c030e532,
+  victoryEasyModeMenu: {fileID: 2517875209596265222, guid: 1315b975a54388d4594a8fd14b9810a4,
     type: 3}
-  jumpAudio: {fileID: 8300000, guid: c4c7a6229d617ac43b4202a3e6a098dc, type: 3}
-  hitAudio: {fileID: 8300000, guid: adbce6ea746845f468e85edcc495a573, type: 3}
+  victoryHardModeMenu: {fileID: 307794564834446696, guid: 8aef7a70ff9d20e469e42677b8cce58a,
+    type: 3}

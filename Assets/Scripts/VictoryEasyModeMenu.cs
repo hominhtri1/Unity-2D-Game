@@ -7,7 +7,7 @@ public class VictoryEasyModeMenu : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetKey("return"))
+        if (Input.GetKeyDown("return"))
         {
             Time.timeScale = 1;
 

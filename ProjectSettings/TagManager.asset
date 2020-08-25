@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Projectile
+  - Bowser Projectile
+  - Player Projectile
+  - Tile
   layers:
   - Default
   - TransparentFX

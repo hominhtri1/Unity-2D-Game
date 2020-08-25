@@ -13,7 +13,7 @@ public class PauseMenu : MonoBehaviour
         TextMeshProUGUI initialText =
             transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         
-        initialText.color = Color.yellow;
+        initialText.color = Color.blue;
 
         index = 0;
     }
@@ -23,7 +23,7 @@ public class PauseMenu : MonoBehaviour
         TextMeshProUGUI currentText =
             transform.GetChild(index).gameObject.GetComponent<TextMeshProUGUI>();
         
-        currentText.color = Color.white;
+        currentText.color = Color.black;
 
         if (Input.GetKeyDown("down") && index < 1)
             index += 1;
@@ -33,9 +33,9 @@ public class PauseMenu : MonoBehaviour
         TextMeshProUGUI newText =
             transform.GetChild(index).gameObject.GetComponent<TextMeshProUGUI>();
         
-        newText.color = Color.yellow;
+        newText.color = Color.blue;
 
-        if (Input.GetKey("return"))
+        if (Input.GetKeyDown("return"))
         {
             switch (index)
             {

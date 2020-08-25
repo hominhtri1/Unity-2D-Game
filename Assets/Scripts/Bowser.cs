@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Bowser : MonoBehaviour
 {
@@ -11,8 +12,16 @@ public class Bowser : MonoBehaviour
     public GameObject normalProjectile;
     public GameObject homingProjectile;
 
+    public AudioClip shootAudio;
+
+    public TextMeshProUGUI healthText = null;
+
     public GameObject victoryEasyModeMenu;
     public GameObject victoryHardModeMenu;
+
+    private Animator animator;
+
+    private AudioSource audioSource;
 
     private int health;
 
@@ -20,6 +29,10 @@ public class Bowser : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
+
         health = 3;
 
         dead = false;
@@ -29,7 +42,10 @@ public class Bowser : MonoBehaviour
 
     void Update()
     {
-        if (health == 0 && !dead)
+        if (healthText != null)
+			healthText.text = health.ToString();
+
+        if (health <= 0 && !dead)
         {
             dead = true;
 
@@ -58,7 +74,7 @@ public class Bowser : MonoBehaviour
 	{
 		GameObject collidingObject = collision.gameObject;
 
-		if (collidingObject.tag == "Projectile")
+		if (collidingObject.tag == "Player Projectile")
         {
             health -= 1;
 
@@ -99,6 +115,10 @@ public class Bowser : MonoBehaviour
 
     void FireProjectile(Vector3 direction)
     {
+        animator.SetTrigger("Shoot");
+
+        audioSource.PlayOneShot(shootAudio);
+
         GameObject clone =
 			Instantiate(normalProjectile, transform.position + direction * 1.8f, Quaternion.identity);
 
@@ -109,6 +129,10 @@ public class Bowser : MonoBehaviour
 
     void FireHomingProjectile()
     {
+        animator.SetTrigger("Shoot");
+
+        audioSource.PlayOneShot(shootAudio);
+
         GameObject clone =
 			Instantiate(homingProjectile, transform.position + Vector3.up * 1.8f, Quaternion.identity);
 

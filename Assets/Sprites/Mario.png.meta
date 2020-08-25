@@ -19,19 +19,25 @@ TextureImporter:
     second: Mario_4
   - first:
       213: -5383407867553921227
-    second: Fire_0
-  - first:
-      213: 7301754939111470067
     second: Fire_1
   - first:
+      213: 7301754939111470067
+    second: Fire_0
+  - first:
       213: 3366035027270568996
-    second: Fire_2
+    second: Fire_1
   - first:
       213: -4300721584263116383
     second: Mario_5
   - first:
       213: -1281953291003957293
     second: Mario_6
+  - first:
+      213: -5188551814952082331
+    second: Fire_3
+  - first:
+      213: -3289200234992376777
+    second: Fire_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -234,7 +240,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_0
+      name: Fire_2
       rect:
         serializedVersion: 2
         x: 746
@@ -255,7 +261,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_1
+      name: Fire_0
       rect:
         serializedVersion: 2
         x: 738
@@ -276,7 +282,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_2
+      name: Fire_1
       rect:
         serializedVersion: 2
         x: 566
@@ -326,7 +332,7 @@ TextureImporter:
         width: 26
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -334,6 +340,48 @@ TextureImporter:
       bones: []
       spriteID: 3dfe01f1646953ee0800000000000000
       internalID: -1281953291003957293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_3
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 1275
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 564a21b4d9f8ef7b0800000000000000
+      internalID: -5188551814952082331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_4
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 1275
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 734e52e20d96a52d0800000000000000
+      internalID: -3289200234992376777
       vertices: []
       indices: 
       edges: []

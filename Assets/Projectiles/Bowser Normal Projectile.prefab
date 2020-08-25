@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3689384950996397708}
   m_Layer: 0
   m_Name: Bowser Normal Projectile
-  m_TagString: Projectile
+  m_TagString: Bowser Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3366035027270568996, guid: f9065934eb5840f4381dddf0b37cc8b2,
+  m_Sprite: {fileID: -5383407867553921227, guid: f9065934eb5840f4381dddf0b37cc8b2,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
